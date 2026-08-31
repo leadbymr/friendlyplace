@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --vh: 1vh;
+}
+
+body {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  background: #0a0a0a;
+  color: #ededea;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+/* курсор прячем ТОЛЬКО на устройствах с мышью — на таче оставляем нативный */
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    cursor: none;
+  }
+}
+
+/* кнопки на iOS не получают «синюю подсветку» и нормально тапаются */
+button,
+a {
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+}
+
+input {
+  font-size: 16px; /* iOS не зумит инпут при фокусе только если >= 16px */
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a28;
+}
+
+::selection {
+  background: #d9ff43;
+  color: #0a0a0a;
+}
